@@ -98,3 +98,26 @@ body {
     height: 100%;
     object-fit: contain; /* Hoặc sử dụng 'cover' nếu muốn cắt bớt phần thừa */
 }
+
+/* CSS cho hiệu ứng hình ảnh rơi như tuyết */
+.falling-image {
+    position: fixed;
+    top: -100px; /* bắt đầu từ phía trên màn hình */
+    width: 50px;  /* kích thước ảnh, có thể điều chỉnh */
+    pointer-events: none; /* để không làm gián đoạn tương tác người dùng */
+    opacity: 0.8;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}

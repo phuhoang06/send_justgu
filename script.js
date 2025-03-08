@@ -35,3 +35,26 @@ window.addEventListener('click', function(event) {
         modal.classList.add('hidden');
     }
 });
+
+// Khi trang tải xong, tạo hiệu ứng ảnh rơi như tuyết
+window.addEventListener('load', function() {
+    // Số lượng ảnh rơi (có thể thay đổi theo ý bạn)
+    const numImages = 50;
+
+    for (let i = 0; i < numImages; i++) {
+        const img = document.createElement('img');
+        // Đường dẫn ảnh của bạn (thay 'my-image.png' bằng ảnh mong muốn)
+        img.src = 'traitim.jpg';
+        img.classList.add('falling-image');
+
+        // Đặt vị trí ngẫu nhiên theo chiều ngang
+        img.style.left = Math.random() * window.innerWidth + 'px';
+        // Thời gian animation ngẫu nhiên từ 5s đến 10s
+        img.style.animationDuration = (5 + Math.random() * 5) + 's';
+        // Đặt độ trễ animation ngẫu nhiên để tạo sự đa dạng
+        img.style.animationDelay = (Math.random() * 5) + 's';
+
+        // Thêm ảnh vào body (hoặc bạn có thể thêm vào một container riêng nếu cần)
+        document.body.appendChild(img);
+    }
+});
